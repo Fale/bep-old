@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login$', 'django.contrib.auth.views.login'),
     url(r'^logout$', 'canvas.views.logout.user_logout'),
-    url(r'^', include('canvas.urls')),
+    url(r'^canvas/', include('canvas.urls')),
+    url(r'^$', 'canvas.views.canvas.list'),
 )
