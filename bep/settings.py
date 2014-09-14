@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import urllib
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -59,28 +58,14 @@ WSGI_APPLICATION = 'bep.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {}
-if 'OPENSHIFT_MYSQL_DB_URL' in os.environ:
-    url = urllib.parse(os.environ.get('OPENSHIFT_MYSQL_DB_URL'))
- 
-    DATABASES['default'] = {
-        'ENGINE' : 'django.db.backends.mysql',
-        'NAME': os.environ['OPENSHIFT_APP_NAME'],
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
-    }
- 
-elif 'OPENSHIFT_POSTGRESQL_DB_URL' in os.environ:
-    url = urllib.parse(os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL'))
- 
+if 'OPENSHIFT_POSTGRESQL_DB_URL' in os.environ:
     DATABASES['default'] = {
         'ENGINE' : 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ['OPENSHIFT_APP_NAME'],
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
+        'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],
+        'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],
+        'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],
+        'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],
     }
  
 else:
