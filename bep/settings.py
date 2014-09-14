@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import urlparse
+import urllib
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -60,7 +60,7 @@ WSGI_APPLICATION = 'bep.wsgi.application'
 
 DATABASES = {}
 if 'OPENSHIFT_MYSQL_DB_URL' in os.environ:
-    url = urlparse.urlparse(os.environ.get('OPENSHIFT_MYSQL_DB_URL'))
+    url = urllib.parse(os.environ.get('OPENSHIFT_MYSQL_DB_URL'))
  
     DATABASES['default'] = {
         'ENGINE' : 'django.db.backends.mysql',
@@ -72,7 +72,7 @@ if 'OPENSHIFT_MYSQL_DB_URL' in os.environ:
     }
  
 elif 'OPENSHIFT_POSTGRESQL_DB_URL' in os.environ:
-    url = urlparse.urlparse(os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL'))
+    url = urllib.parse(os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL'))
  
     DATABASES['default'] = {
         'ENGINE' : 'django.db.backends.postgresql_psycopg2',
