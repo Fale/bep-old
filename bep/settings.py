@@ -1,5 +1,5 @@
 """
-Django settings for businesscanvas project.
+Django settings for bep project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'businesscanvas.urls'
+ROOT_URLCONF = 'bep.urls'
 
-WSGI_APPLICATION = 'businesscanvas.wsgi.application'
+WSGI_APPLICATION = 'bep.wsgi.application'
 
 
 # Database
