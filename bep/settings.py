@@ -71,7 +71,7 @@ if 'OPENSHIFT_POSTGRESQL_DB_URL' in os.environ:
 else:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'dev.db',
+        'NAME': 'db.sqlite3',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -98,7 +98,7 @@ USE_TZ = True
 if 'OPENSHIFT_REPO_DIR' in os.environ:
     STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static')
 else:
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+    STATIC_ROOT = ''
 #STATIC_URL = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
