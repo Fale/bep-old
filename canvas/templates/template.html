@@ -26,7 +26,8 @@
   <body role="document">
 
     <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-inverse" style="position: absolute; width:15px; height: 50px; z-index:1032;" id="navbar-hider"><span class="glyphicon glyphicon-chevron-left"></span></div>
+    <div id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -55,6 +56,17 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>{% block js %}{% endblock %}</script>
+    <script>
+        $("#navbar-hider").click(function(){
+            if ($("#navbar").is(':hidden')) {
+                $("#navbar").show();
+                $("div#content").css('padding-top', '65px');
+            } else {
+                $("#navbar").hide();
+                $("div#content").css('padding-top', '15px');
+            }
+        });
+    </script>
   </body>
 </html>
  
