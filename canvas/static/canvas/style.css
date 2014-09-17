@@ -94,6 +94,14 @@ div#canvas-box-rss {
     border-right: 1px solid black;
 }
 
+
+/*                              */
+/*   Titles H1, H2, H3, H4...   */
+/*                              */
+h1 {
+    margin-top: 7px;
+}
+
 /*                              */
 /*   Edit and delete controls   */
 /*                              */
@@ -116,4 +124,25 @@ a.glyphicon-home {
 .glyphicon-trash {
     display: none;
     cursor: pointer;
+}
+
+#glyphicon-hider {
+    cursor: pointer;
+    padding-top: 17px;
+}
+
+.glyphicon-hider-dark {
+    color: #777777;
+}
+
+.glyphicon-hider-dark:hover {
+    color: #FFFFFF;
+}
+
+.glyphicon-hider-light {
+    color: #777777;
+}
+
+.glyphicon-hider-light:hover {
+    color: #000000;
 }

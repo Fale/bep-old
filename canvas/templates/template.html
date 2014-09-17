@@ -26,7 +26,7 @@
   <body role="document">
 
     <!-- Fixed navbar -->
-    <div class="navbar-inverse" style="position: absolute; width:15px; height: 50px; z-index:1032;" id="navbar-hider"><span class="glyphicon glyphicon-chevron-left"></span></div>
+    <div class="navbar-inverse" style="position: absolute; width:15px; height: 50px; z-index:1032;" id="navbar-hider"><span id="glyphicon-hider" class="glyphicon glyphicon-chevron-left glyphicon-hider-dark"></span></div>
     <div id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -61,9 +61,19 @@
             if ($("#navbar").is(':hidden')) {
                 $("#navbar").show();
                 $("div#content").css('padding-top', '65px');
+                $(this).addClass('navbar-inverse');
+                $(this).children().removeClass('glyphicon-chevron-right');
+                $(this).children().addClass('glyphicon-chevron-left');
+                $(this).children().removeClass('glyphicon-hider-light');
+                $(this).children().addClass('glyphicon-hider-dark');
             } else {
                 $("#navbar").hide();
-                $("div#content").css('padding-top', '15px');
+                $("div#content").css('padding-top', '0');
+                $(this).removeClass('navbar-inverse');
+                $(this).children().removeClass('glyphicon-chevron-left');
+                $(this).children().addClass('glyphicon-chevron-right');
+                $(this).children().removeClass('glyphicon-hider-dark');
+                $(this).children().addClass('glyphicon-hider-light');
             }
         });
     </script>
