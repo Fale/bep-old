@@ -12,5 +12,6 @@ urlpatterns = patterns('',
     url(r'^login$', 'django.contrib.auth.views.login'),
     url(r'^logout$', 'canvas.views.logout.user_logout'),
     url(r'^canvas/', include('canvas.urls')),
+    url(r'^wheel/', include('wheel.urls')),
     url(r'^$', 'canvas.views.canvas.list'),
 )
