@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
-from canvas.views import canvas, item, logout
+import wheel.views
 
 urlpatterns = patterns('',
-    url(r'^$', wheel.list, name='list'),
+    url(r'^$', wheel.views.list, name='list'),
 )
