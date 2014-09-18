@@ -7,6 +7,7 @@ class Wheel(models.Model):
     sectors_number = models.IntegerField()
     max_value = models.IntegerField()
     step_value = models.IntegerField()
+    step_line_value = models.IntegerField()
 
     def __str__(self):
         return self.name
