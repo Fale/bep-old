@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
-import wheel.views
+from wheel.views import pages
 
 urlpatterns = patterns('',
-    url(r'^$', wheel.views.list, name='list'),
+    url(r'^$', pages.list, name='list'),
 )

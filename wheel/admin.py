@@ -1,3 +1,8 @@
 from django.contrib import admin
+from wheel.models import Wheel, Sector
 
-# Register your models here.
+class WheelAdmin(admin.ModelAdmin):
+    fields =  ['name']
+
+admin.site.register(Wheel)
+admin.site.register(Sector)

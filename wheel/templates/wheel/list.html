@@ -8,20 +8,37 @@
 
 
 {% block js %}
-    circleRadii = [40, 20, 10]
+    var w = $('#content').width() - $('#content').css('padding-left').replace("px", "") - $('#content').css('padding-right').replace("px", "");
+    var h = $('#content').height() - $('#content').css('padding-top').replace("px", "");
+    var maxRadius = Math.min(w, h);
+    maxRadius = Math.floor((maxRadius - 5) / 10) * 10;
+    console.log(maxRadius);
+
+    circles = [1];
+
+    sectorsNumber = 10
+    for (c = 1; c < 11; c++) {
+        for (s = 0; s < sectorNumber; s++) {
+            circle = [];
+            circle[0] = maxRadius / 20 * i;
+            circle[1] = 
+        }
+    }
+
+    console.log(circleRadii);
 
     var svgContainer = d3.select("div#graph").append("svg")
-                                        .attr("width", 600)
-                                        .attr("height", 100);
+                                             .attr("width", maxRadius + 2)
+                                             .attr("height", maxRadius + 2);
 
     var circles = svgContainer.selectAll("circle")
                               .data(circleRadii)
                               .enter()
                               .append("circle")
 
-    var circleAttributes = circles
-                           .attr("cx", 50)
-                           .attr("cy", 50)
-                           .attr("r", function (d) { return d; })
-                           .style("border", "1px solid black");
+    var circleAttributes = circles.attr("cx", (maxRadius + 2) / 2)
+                                  .attr("cy", (maxRadius + 2) / 2)
+                                  .attr("r", function (d) { return d; })
+                                  .style("stroke", "black")
+                                  .style("fill", "none");
 {% endblock %}
